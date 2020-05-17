@@ -122,16 +122,14 @@ class SpaceTime:
 
             if player.lives == 0 and not death_explosion.alive():
                 Win.ShowGoScreen(score)
-                # /----------------------------Проблема------------------------------------\
                 cur.execute("INSERT INTO Space VALUES(1, {}, {})".format(score, datetime.now()))
                 con.commit()
-                # \-----------------------------------------------------------------------/
+                
             if score >= 1000:
                 Win.VictoryScreen(score)
-                # /----------------------------Проблема-----------------------------------\
                 cur.execute("INSERT INTO Space VALUES(1, {}, {})".format(score, datetime.now()))
                 con.commit()
-                # \----------------------------------------------------------------------/
+
             self.screen.fill(BLACK)
             self.screen.blit(background, background_rect)
             all_sprites.draw(self.screen)
